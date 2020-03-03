@@ -13,12 +13,18 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="확진자: "
+            android:id="@+id/local"
+            android:textSize="20dp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
             />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/total"
+            android:id="@+id/l_count"
+            android:textSize="20dp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
             />
     </LinearLayout>
     <LinearLayout
@@ -29,46 +35,54 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="격리 해제: "
+            android:textColor="@color/black"
+            android:text="확진: "
             />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:id="@+id/total"
+            android:textColor="@color/black"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:text="완치: "
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
             android:id="@+id/clear"
             />
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColor="@color/black"
         android:orientation="horizontal"
         >
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="사망자: "
+            android:textColor="@color/black"
+            android:text="사망: "
             />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/dead"
+            android:textColor="@color/red"
             />
     </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        >
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="지역:"
-            />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/local_total"
-            />
-    </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -78,13 +92,15 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="업데이트: "
+            android:text="기준: "
+            android:textSize="12dp"
             />
         <TextView
             android:layout_weight="1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/date"
+            android:textSize="12dp"
             />
         <ImageButton
             android:layout_width="wrap_content"
@@ -92,6 +108,7 @@
             android:background="@drawable/ripple_effect"
             android:src="@drawable/ic_icon_refresh"
             android:id="@+id/refreshBtn"
+            android:visibility="gone"
             />
     </LinearLayout>
 </LinearLayout>
