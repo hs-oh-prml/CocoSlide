@@ -65,7 +65,9 @@ class WidgetService: Service() {
     }
 
     fun getData(){
-        var url = "http://ncov.mohw.go.kr/bdBoardList_Real.do?brdId=1&brdGubun=11&ncvContSeq=&contSeq=&board_id=&gubun="
+//        var url = "http://ncov.mohw.go.kr/bdBoardList_Real.do?brdId=1&brdGubun=11&ncvContSeq=&contSeq=&board_id=&gubun="
+        var url = "https://wuhanvirus.kr/"
+
         var queue = Volley.newRequestQueue(this)
 
         var postRequest = object: StringRequest(
@@ -119,14 +121,21 @@ class WidgetService: Service() {
     fun parseHtml(response: String):ArrayList<String>{
         var data = ArrayList<String>()
         var doc = Jsoup.parse(response)
-        var current = doc.getElementsByClass("data_table tbl_scrl_mini2 mgt16")[0]
-        var tr = current.getElementsByTag("tr")
-        for(i in tr){
-            var td = i.getElementsByTag("td")[0]
-            var count = td.text()
-            data.add(count)
-            Log.d("Current", count)
-        }
+//        var current = doc.getElementsByClass("data_table mgt16")[0]
+//        var tr = current.getElementsByTag("tr")
+//        for(i in tr){
+//            var td = i.getElementsByTag("td")[0]
+//            var count = td.text()
+//            data.add(count)
+//            Log.d("Current", count)
+//        }
+        var infected_num = doc.getElementsByClass("infected number")[1].text()
+        var death_num = doc.getElementsByClass("death red number")[1].text()
+        var released_num = doc.getElementsByClass("released number")[1].text()
+        data.add(infected_num)
+        data.add(released_num)
+        data.add(death_num)
+
         return data
     }
 }
